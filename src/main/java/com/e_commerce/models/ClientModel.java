@@ -1,12 +1,14 @@
 package com.e_commerce.models;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class ClientModel {
     private String name;
     private String CPF;
     private String email;
 
-    public ClientModel() {
-    }
+    public ClientModel() {}
 
     public ClientModel(String name, String CPF, String email){
         this.name = name;
