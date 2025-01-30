@@ -17,4 +17,9 @@ public class ClientServiceImpl implements ClientService{
 
         return new ClientDTO(clientSaved.getName(), clientSaved.getCPF(), clientSaved.getEmail());
     }
+
+    @Override
+    public ClientDTO findClientByCpf(String cpf) {
+        return clientRepository.findClientByCpf(cpf);
+    }
 }
