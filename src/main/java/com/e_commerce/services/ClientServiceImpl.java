@@ -22,4 +22,31 @@ public class ClientServiceImpl implements ClientService{
     public ClientDTO findClientByCpf(String cpf) {
         return clientRepository.findClientByCpf(cpf);
     }
+
+    @Override
+    public ClientDTO updateClientData(String cpf, ClientDTO clientRequest) {
+        ClientDTO clientToUpdate = clientRepository.findClientByCpf(cpf);
+
+        if(clientRequest.getName() != null || clientRequest.getName().isBlank()){
+            throw new RuntimeException("O nome do cliente deve ser informado.");
+        } else {
+            clientToUpdate.setName(clientRequest.getName());
+        }
+
+        if(clientRequest.getCPF() != null || clientRequest.getCPF().isBlank()){
+            throw new RuntimeException("O CPF do cliente deve ser informado.");
+        } else {
+            clientToUpdate.setCPF(clientRequest.getCPF());
+        }
+
+        if(clientRequest.getEmail() != null || clientRequest.getEmail().isBlank()){
+            throw new RuntimeException("O email do cliente deve ser informado.");
+        } else {
+            clientToUpdate.setEmail(clientRequest.getEmail());
+        }
+
+        clientRepository.updateClientData(cpf, clientToUpdate);
+
+        return new ClientDTO(clientToUpdate.getName(), clientToUpdate.getCPF(),clientToUpdate.getEmail());
+    }
 }

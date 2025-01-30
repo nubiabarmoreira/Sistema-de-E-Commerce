@@ -21,11 +21,26 @@ public class ClientRepositoryImpl implements ClientRepository{
     }
 
     @Override
-    public Optional<ClientDTO> findClientByCpf(String cpf) {
+    public ClientDTO findClientByCpf(String cpf) {
         ClientModel clientByCpfFound = databaseClientRepository
                 .findClientByCpf(cpf)
                 .orElseThrow(() -> new RuntimeException("Cliente com CPF " + cpf + " não encontrado."));
 
-        return new Optional<ClientDTO>(clientByCpfFound.getName(), clientByCpfFound.getCPF(), clientByCpfFound.getEmail());
+        return new ClientDTO(clientByCpfFound.getName(), clientByCpfFound.getCPF(), clientByCpfFound.getEmail());
+    }
+
+    @Override
+    public ClientDTO updateClientData(String cpf, ClientDTO clientToUpdate) {
+        ClientModel clientModel = databaseClientRepository
+                .findClientByCpf(cpf)
+                .orElseThrow(() -> new RuntimeException("Cliente com CPF " + cpf + " não encontrado."));
+
+        clientModel.setName(clientToUpdate.getName());
+        clientModel.setCPF(clientToUpdate.getCPF());
+        clientModel.setEmail(clientToUpdate.getEmail());
+
+        ClientModel clientUpdated = databaseClientRepository.save(clientModel);
+
+        return new ClientDTO(clientUpdated.getName(), clientUpdated.getCPF(), clientUpdated.getEmail());
     }
 }
