@@ -5,6 +5,9 @@ import com.e_commerce.models.ProductModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Repository
 public class ProductRepositoryImpl implements ProductRepository {
     @Autowired
@@ -16,5 +19,14 @@ public class ProductRepositoryImpl implements ProductRepository {
         ProductModel productSaved = databaseProductRepository.save(productToSave);
 
         return new ProductDTO(productSaved.getName(), productSaved.getPrice(), productSaved.getQuantity());
+    }
+
+    @Override
+    public List<ProductModel> findAllProducts() {
+        List<ProductModel> allProducts = databaseProductRepository.findAll();
+        return allProducts
+                .stream()
+                .map(products -> new ProductModel(products.getName(), products.getPrice(), products.getQuantity()))
+                .collect(Collectors.toList());
     }
 }
