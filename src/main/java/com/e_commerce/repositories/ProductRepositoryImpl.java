@@ -19,14 +19,11 @@ public class ProductRepositoryImpl implements ProductRepository {
         ProductModel productSaved = databaseProductRepository.save(productToSave);
 
         return new ProductDTO(productSaved.getName(), productSaved.getPrice(), productSaved.getQuantity());
+
     }
 
     @Override
     public List<ProductModel> findAllProducts() {
-        List<ProductModel> allProducts = databaseProductRepository.findAll();
-        return allProducts
-                .stream()
-                .map(products -> new ProductModel(products.getName(), products.getPrice(), products.getQuantity()))
-                .collect(Collectors.toList());
+        return databaseProductRepository.findAll();
     }
 }
