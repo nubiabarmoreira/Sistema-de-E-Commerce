@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.stream.Collectors;
+
+import static ch.qos.logback.core.joran.spi.ConsoleTarget.findByName;
 
 @Repository
 public class ProductRepositoryImpl implements ProductRepository {
@@ -19,7 +20,6 @@ public class ProductRepositoryImpl implements ProductRepository {
         ProductModel productSaved = databaseProductRepository.save(productToSave);
 
         return new ProductDTO(productSaved.getName(), productSaved.getPrice(), productSaved.getQuantity());
-
     }
 
     @Override
