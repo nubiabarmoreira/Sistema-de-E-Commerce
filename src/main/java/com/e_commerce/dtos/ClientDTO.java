@@ -7,6 +7,7 @@ import jakarta.validation.constraints.Size;
 import org.hibernate.validator.constraints.br.CPF;
 
 public class ClientDTO {
+    private long id;
 
     @NotBlank(message = "O nome do cliente deve ser informado.")
     @Size(min = 2, max = 100, message = "O nome do cliente deve ter entre 2 e 100 caracteres.")
