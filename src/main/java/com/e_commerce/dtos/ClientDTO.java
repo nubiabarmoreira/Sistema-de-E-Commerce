@@ -1,8 +1,25 @@
 package com.e_commerce.dtos;
 
+import jakarta.persistence.Column;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+import org.hibernate.validator.constraints.br.CPF;
+
 public class ClientDTO {
+
+    @NotBlank(message = "O nome do cliente deve ser informado.")
+    @Size(min = 2, max = 100, message = "O nome do cliente deve ter entre 2 e 100 caracteres.")
     private String name;
+
+    @CPF(message = "Informe um CPF válido.")
+    @Column(unique = true)
+    @NotBlank(message = "O CPF do cliente deve ser informado.")
     private String CPF;
+
+    @Email(message = "Informe um e-mail válido.")
+    @Column(unique = true)
+    @NotBlank(message = "O e-mail do cliente deve ser informado.")
     private String email;
 
     public ClientDTO() {}
