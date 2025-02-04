@@ -27,8 +27,8 @@ public class ClientController {
     }
 
     @PutMapping("/CPF/{CPF}")
-    public ResponseEntity<ClientDTO> updateClientData (@PathVariable String cpf, @RequestBody ClientDTO clientRequest){
-        ClientDTO clientResponse = clientService.updateClientData(cpf, clientRequest);
+    public ResponseEntity<ClientDTO> updateClientData (@PathVariable String CPF, @RequestBody ClientDTO clientRequest){
+        ClientDTO clientResponse = clientService.updateClientData(CPF, clientRequest);
         return ResponseEntity.ok().body(clientResponse);
     }
 
