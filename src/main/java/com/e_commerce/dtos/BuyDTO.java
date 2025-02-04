@@ -1,9 +1,23 @@
 package com.e_commerce.dtos;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PositiveOrZero;
+import jakarta.validation.constraints.Size;
+import org.hibernate.validator.constraints.br.CPF;
+
 public class BuyDTO {
     private long id;
+
+    @NotBlank(message = "O CPF do cliente para a compra deve ser informado.")
+    @CPF(message = "Informe um CPF do cliente para a compra válido.")
     private String clientCpf;
+
+    @NotBlank(message = "O nome do produto a ser comprado deve ser informado.")
+    @Size(min = 2, max = 100, message = "O nome do produto a ser comprado deve ter entre 2 e 100 caracteres.")
     private String productName;
+
+    @NotBlank(message = "A quantidade de produtos em estoque deve ser informado.")
+    @PositiveOrZero(message = "A quantidade de produtos em estoque deve ser maior ou igual a zero.")
     private int stock;
 
     public BuyDTO() {}
