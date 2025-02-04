@@ -4,6 +4,8 @@ import jakarta.persistence.Column;
 import jakarta.validation.constraints.*;
 
 public class ProductDTO {
+    private long id;
+
     @NotBlank(message = "O nome do produto deve ser informado.")
     @Column(unique = true)
     @Size(min = 2, max = 100, message = "O nome do produto deve ter entre 2 e 100 caracteres.")
