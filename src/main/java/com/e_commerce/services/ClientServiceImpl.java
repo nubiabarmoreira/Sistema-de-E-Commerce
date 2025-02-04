@@ -27,23 +27,9 @@ public class ClientServiceImpl implements ClientService{
     public ClientDTO updateClientData(String CPF, ClientDTO clientRequest) {
         ClientDTO clientToUpdate = clientRepository.findClientByCpf(CPF);
 
-        if(clientRequest.getName() != null || clientRequest.getName().isBlank()){
-            throw new RuntimeException("O nome do cliente deve ser informado.");
-        } else {
-            clientToUpdate.setName(clientRequest.getName());
-        }
-
-        if(clientRequest.getCPF() != null || clientRequest.getCPF().isBlank()){
-            throw new RuntimeException("O CPF do cliente deve ser informado.");
-        } else {
-            clientToUpdate.setCPF(clientRequest.getCPF());
-        }
-
-        if(clientRequest.getEmail() != null || clientRequest.getEmail().isBlank()){
-            throw new RuntimeException("O email do cliente deve ser informado.");
-        } else {
-            clientToUpdate.setEmail(clientRequest.getEmail());
-        }
+        clientToUpdate.setName(clientRequest.getName());
+        clientToUpdate.setCPF(clientRequest.getCPF());
+        clientToUpdate.setEmail(clientRequest.getEmail());
 
         clientRepository.updateClientData(CPF, clientToUpdate);
 
