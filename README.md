@@ -6,6 +6,7 @@
 2. [Explicação](#explicação-do-funcionamento-do-código)
 3. [Execução](#execucao)
 4. [Tecnologias](#tecnologias-utilizadas)
+5. [Arquitetura](#arquitetura-do-projeto)
 4. [GitFlow](#gitflow)
 5. [Commits](#commits)
 
@@ -38,13 +39,34 @@ O sistema fornece uma API RESTful, onde é possível:
 5. Acesse a API no navegador ou via Postman: http://localhost:8080 
 
 
+## Arquitetura do projeto
+
+O projeto segue a Arquitetura Hexagonal (Ports and Adapters), que promove a separação de responsabilidades e facilita a manutenção, testes e extensibilidade do sistema.
+
+Abaixo está uma visão geral da estrutura do projeto, destacando as camadas e seus papéis:
+
+```plaintext
+src/
+├── main/
+│   ├── java/
+│   │   ├── com/
+│   │   │   │   ├── e_commerce/
+│   │   │   │   │   ├── controllers/   # Classes para expor os endpoints
+│   │   │   │   │   ├── dtos/          # Vão servir para realizar transferência de dados entre camadas da aplicação
+│   │   │   │   │   ├── models/        # Entidades (Domínio)
+│   │   │   │   │   ├── repositories/  # Classes relacionadas a camada que se comunica com as Entidades
+│   │   │   │   │   ├── services/      # Classes onde agrupam as regras de négocio
+│   ├── resources/                     # Configurações e arquivos estáticos
+├── test/
+```
+
 ## Tecnologias utilizadas
 
 As principais tecnologias e ferramentas utilizadas no desenvolvimento deste projeto são:
 
 - Java 17
 - Spring Boot 3.4.2
-- H2-database
+- H2-database - rodando em memória local para facilitar o desenvolvimento e os testes. Não é necessário configurar um banco de dados externo.
 - JPA repository
 - Maven 
 
