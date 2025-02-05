@@ -1,47 +1,35 @@
 package com.e_commerce.models;
 
+import com.e_commerce.dtos.ClientDTO;
+import com.e_commerce.dtos.ProductDTO;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
+@Entity
 public class BuyModel {
+//    @Autowired
+//    ClientDTO clientDTO;
+//    ProductDTO productDTO;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String clientCpf;
-    private String productName;
     private int stock;
+    private String CPF;
+    private List<ProductDTO> productsList;
 
     public BuyModel() {}
 
-    public BuyModel(String clientCpf, String productName, int stock) {
-        this.clientCpf = clientCpf;
-        this.productName = productName;
-        this.stock = stock;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
+    public BuyModel(long id, int stock, String CPF, List<ProductDTO> productsList) {
         this.id = id;
-    }
-
-    public String getClientCpf() {
-        return clientCpf;
-    }
-
-    public void setClientCpf(String clientCpf) {
-        this.clientCpf = clientCpf;
-    }
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
+        this.stock = stock;
+        this.CPF = CPF;
+        this.productsList = productsList;
     }
 
     public int getStock() {
@@ -50,5 +38,21 @@ public class BuyModel {
 
     public void setStock(int stock) {
         this.stock = stock;
+    }
+
+    public String getCPF() {
+        return CPF;
+    }
+
+    public void setCPF(String CPF) {
+        this.CPF = CPF;
+    }
+
+    public List<ProductDTO> getProductsList() {
+        return productsList;
+    }
+
+    public void setProductsList(List<ProductDTO> productsList) {
+        this.productsList = productsList;
     }
 }
