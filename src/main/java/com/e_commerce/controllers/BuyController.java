@@ -18,8 +18,8 @@ public class BuyController {
     BuyService buyService;
 
     @PostMapping
-    public ResponseEntity<HttpStatus> makePurchase (@Valid @RequestBody BuyDTO buyRequest){
+    public ResponseEntity<BuyDTO> makePurchase (@Valid @RequestBody BuyDTO buyRequest){
        buyService.makePurchase(buyRequest);
-        return ResponseEntity.status(HttpStatus.CREATED).body(buyRequest);
+        return ResponseEntity.status(HttpStatus.OK).body(buyRequest);
     }
 }

@@ -12,32 +12,29 @@ import java.util.List;
 
 @Entity
 public class BuyModel {
-//    @Autowired
-//    ClientDTO clientDTO;
-//    ProductDTO productDTO;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private int stock;
     private String CPF;
     private List<ProductDTO> productsList;
+    private int quantityToBuy;
 
     public BuyModel() {}
 
-    public BuyModel(long id, int stock, String CPF, List<ProductDTO> productsList) {
+    public BuyModel(long id, int stock, String CPF, List<ProductDTO> productsList, int quantityToBuy) {
         this.id = id;
-        this.stock = stock;
         this.CPF = CPF;
         this.productsList = productsList;
+        this.quantityToBuy = quantityToBuy;
     }
 
-    public int getStock() {
-        return stock;
+    public int getQuantityToBuy() {
+        return quantityToBuy;
     }
 
-    public void setStock(int stock) {
-        this.stock = stock;
+    public void setQuantityToBuy(int quantityToBuy) {
+        this.quantityToBuy = quantityToBuy;
     }
 
     public String getCPF() {

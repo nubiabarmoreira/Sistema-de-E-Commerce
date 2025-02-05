@@ -30,4 +30,9 @@ public class ProductServiceImpl implements ProductService {
                 .map(products -> new ProductDTO(products.getName(), products.getPrice(), products.getQuantity()))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public ProductDTO findProductByName(String name) {
+        return productRepository.findProductByName(name);
+    }
 }
