@@ -27,4 +27,10 @@ public class ProductController {
         List<ProductDTO> allProducts = productService.findAllProducts();
         return ResponseEntity.ok(allProducts);
     }
+
+    @GetMapping("/nome/{nome}")
+    public ResponseEntity<ProductDTO> findProductByName (@PathVariable String name, @RequestBody ProductDTO productRequest){
+        ProductDTO productByName = productService.findProductByName(name);
+        return ResponseEntity.ok(productByName);
+    }
 }

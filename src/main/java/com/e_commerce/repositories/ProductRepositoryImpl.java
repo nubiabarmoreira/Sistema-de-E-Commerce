@@ -1,5 +1,6 @@
 package com.e_commerce.repositories;
 
+import com.e_commerce.dtos.ClientDTO;
 import com.e_commerce.dtos.ProductDTO;
 import com.e_commerce.models.ProductModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,5 +26,14 @@ public class ProductRepositoryImpl implements ProductRepository {
     @Override
     public List<ProductModel> findAllProducts() {
         return databaseProductRepository.findAll();
+    }
+
+    @Override
+    public ProductDTO findProductByName(String name) {
+        ProductModel productByName = databaseProductRepository
+                .findProductByName(name)
+                .orElseThrow(() -> new RuntimeException("Produto " + name + " não encontrado."));
+
+        return new ProductDTO(productByName.getName(), productByName.getPrice(), productByName.getQuantity());
     }
 }
