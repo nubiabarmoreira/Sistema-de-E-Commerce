@@ -3,12 +3,14 @@
 
 ## Índice
 1. [Descrição](#descrição)
-2. [Explicação](#explicação-do-funcionamento-do-código)
+2. [Explicação do funcionamento do código](#explicação-do-funcionamento-do-código)
 3. [Execução](#execucao)
-4. [Tecnologias](#tecnologias-utilizadas)
-5. [Arquitetura](#arquitetura-do-projeto)
-4. [GitFlow](#gitflow)
-5. [Commits](#commits)
+4. [Arquitetura do projeto](#arquitetura-do-projeto)
+5. [Relações entre as Entidades](#relações-entre-as-entidades)
+6. [Tecnologias utilizadas](#tecnologias-utilizadas)
+7. [GitFlow](#gitflow)
+8. [Commits](#commits)
+9. [Próximos passos](#próximos-passos)
 
 
 ## Descrição
@@ -80,7 +82,7 @@ O sistema possui três entidades principais: `Client`, `Product` e `Buy`. Abaixo
 3. Client e Product:
    - Não há uma relação direta entre cliente e produto, mas eles se conectam indiretamente por meio da compra (`Buy`).
 
-Dessa forma, o diagrama de classes na Liguagem de Modelo Unificada (UML) fica da segunte forma:
+Dessa forma, o diagrama de classes na Linguagem de Modelo Unificada (UML) fica da seguinte forma:
 
 <img src="img/UML.md.png"/>
 
@@ -112,7 +114,7 @@ As principais tecnologias e ferramentas utilizadas no desenvolvimento deste proj
    https://www.conventionalcommits.org/pt-br/v1.0.0/
 
 
-## Próximos passos:
+## Próximos passos
 
 - Melhorar as validações;
 - Criar mais endpoints;
