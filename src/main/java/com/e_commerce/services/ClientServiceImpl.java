@@ -19,13 +19,13 @@ public class ClientServiceImpl implements ClientService{
     }
 
     @Override
-    public ClientDTO findClientByCpf(String CPF) {
-        return clientRepository.findClientByCpf(CPF);
+    public ClientDTO findClientByCPF(String CPF) {
+        return clientRepository.findClientByCPF(CPF);
     }
 
     @Override
     public ClientDTO updateClientData(String CPF, ClientDTO clientRequest) {
-        ClientDTO clientToUpdate = clientRepository.findClientByCpf(CPF);
+        ClientDTO clientToUpdate = clientRepository.findClientByCPF(CPF);
 
         clientToUpdate.setName(clientRequest.getName());
         clientToUpdate.setCPF(clientRequest.getCPF());

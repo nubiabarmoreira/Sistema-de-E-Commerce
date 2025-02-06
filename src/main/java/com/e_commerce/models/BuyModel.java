@@ -17,7 +17,7 @@ public class BuyModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String CPF;
-    private List<ProductDTO> productsList;
+    private List<ProductModel> productsList;
     private int quantityToBuy;
 
     public BuyModel() {}

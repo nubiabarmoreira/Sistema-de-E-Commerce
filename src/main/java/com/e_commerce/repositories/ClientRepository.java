@@ -4,6 +4,6 @@ import com.e_commerce.dtos.ClientDTO;
 
 public interface ClientRepository {
     ClientDTO saveClient(ClientDTO clientToSave);
-    ClientDTO findClientByCpf(String CPF);
+    ClientDTO findClientByCPF(String CPF);
     ClientDTO updateClientData(String CPF, ClientDTO clientToUpdate);
 }

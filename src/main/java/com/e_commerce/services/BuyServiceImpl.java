@@ -21,14 +21,14 @@ public class BuyServiceImpl implements BuyService {
 
     @Override
     public void makePurchase(BuyDTO buyRequest) {
-        ClientDTO clientToBuy = clientRepository.findClientByCpf(buyRequest.getCPF());
-        if(!clientToBuy.isEmpty()){
+        ClientDTO clientToBuy = clientRepository.findClientByCPF(buyRequest.getCPF());
+        if(clientToBuy == null){
             throw new RuntimeException("Cliente com CPF " + clientToBuy.getCPF() + " não encontrado.");
         }
 
         for (ProductDTO productDTO : buyRequest.getProductsList()){
-            ProductModel productModel = productRepository.findProductByName(productDTO.getName())
-                    .orElseThrow(() -> new RuntimeException("Produto não encontrado: " + productDTO.getName()));
+            ProductModel productModel = productRepository.findProductByName(productDTO.getName());
+                  //  .orElseThrow(() -> new RuntimeException("Produto não encontrado: " + productDTO.getName()));
 
             if(productModel.getQuantity() <= 0){
                 throw new RuntimeException("Produto sem estoque: " + productDTO.getName());

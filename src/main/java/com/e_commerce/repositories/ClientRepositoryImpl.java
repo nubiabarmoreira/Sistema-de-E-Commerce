@@ -21,9 +21,9 @@ public class ClientRepositoryImpl implements ClientRepository{
     }
 
     @Override
-    public ClientDTO findClientByCpf(String CPF) {
+    public ClientDTO findClientByCPF(String CPF) {
         ClientModel clientByCpfFound = databaseClientRepository
-                .findClientByCpf(CPF)
+                .findClientByCPF(CPF)
                 .orElseThrow(() -> new RuntimeException("Cliente com CPF " + CPF + " não encontrado."));
 
         return new ClientDTO(clientByCpfFound.getName(), clientByCpfFound.getCPF(), clientByCpfFound.getEmail());
@@ -32,7 +32,7 @@ public class ClientRepositoryImpl implements ClientRepository{
     @Override
     public ClientDTO updateClientData(String CPF, ClientDTO clientToUpdate) {
         ClientModel clientModel = databaseClientRepository
-                .findClientByCpf(CPF)
+                .findClientByCPF(CPF)
                 .orElseThrow(() -> new RuntimeException("Cliente com CPF " + CPF + " não encontrado."));
 
         clientModel.setName(clientToUpdate.getName());

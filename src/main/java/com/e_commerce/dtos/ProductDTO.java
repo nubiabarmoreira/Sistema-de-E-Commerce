@@ -1,22 +1,18 @@
 package com.e_commerce.dtos;
 
-import jakarta.persistence.Column;
-import jakarta.validation.constraints.*;
-
 public class ProductDTO {
     private long id;
 
-    @NotBlank(message = "O nome do produto deve ser informado.")
-    @Column(unique = true)
-    @Size(min = 2, max = 100, message = "O nome do produto deve ter entre 2 e 100 caracteres.")
+//    @NotBlank(message = "O nome do produto deve ser informado.")
+//    @Size(min = 2, max = 100, message = "O nome do produto deve ter entre 2 e 100 caracteres.")
     private String name;
 
-    @NotNull(message = "O preço do produto deve ser informado.")
-    @Positive(message = "O preço do produto deve ser maior do que zero.")
+//    @NotNull(message = "O preço do produto deve ser informado.")
+//    @Positive(message = "O preço do produto deve ser maior do que zero.")
     private Double price;
 
-    @NotNull(message = "A quantidade do produto deve ser informada.")
-    @PositiveOrZero(message = "A quantidade do produto deve ser maior ou igual a zero.")
+//    @NotNull(message = "A quantidade do produto deve ser informada.")
+//    @PositiveOrZero(message = "A quantidade do produto deve ser maior ou igual a zero.")
     private int quantity;
 
     public ProductDTO() {}
