@@ -3,7 +3,6 @@ package com.e_commerce.services;
 import com.e_commerce.dtos.BuyDTO;
 import com.e_commerce.dtos.ClientDTO;
 import com.e_commerce.dtos.ProductDTO;
-import com.e_commerce.models.ProductModel;
 import com.e_commerce.repositories.ClientRepository;
 import com.e_commerce.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
