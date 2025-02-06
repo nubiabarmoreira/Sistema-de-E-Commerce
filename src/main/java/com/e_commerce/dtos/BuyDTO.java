@@ -16,6 +16,7 @@ public class BuyDTO {
     @NotBlank(message = "O CPF do cliente deve ser informado.")
     private String CPF;
 
+    @NotBlank(message = "A lista de produtos a serem comprados deve ser informada.")
     private List<ProductDTO> productsList;
 
     @NotNull(message = "A quantidade do produto deve ser informada.")
