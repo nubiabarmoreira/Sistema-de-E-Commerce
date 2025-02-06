@@ -17,7 +17,7 @@ public class BuyDTO {
     private String CPF;
 
     @NotBlank(message = "A lista de produtos a serem comprados deve ser informada.")
-    private List<ProductDTO> productsList;
+    private List<ProductRequestDTO> productsList;
 
     @NotNull(message = "A quantidade do produto deve ser informada.")
     @PositiveOrZero(message = "A quantidade do produto deve ser maior ou igual a zero.")
@@ -25,7 +25,7 @@ public class BuyDTO {
 
     public BuyDTO() {}
 
-    public BuyDTO(long id, String CPF, List<ProductDTO> productsList, int quantityToBuy) {
+    public BuyDTO(long id, String CPF, List<ProductRequestDTO> productsList, int quantityToBuy) {
         this.id = id;
         this.CPF = CPF;
         this.productsList = productsList;
@@ -48,11 +48,11 @@ public class BuyDTO {
         this.CPF = CPF;
     }
 
-    public List<ProductDTO> getProductsList() {
+    public List<ProductRequestDTO> getProductsList() {
         return productsList;
     }
 
-    public void setProductsList(List<ProductDTO> productsList) {
+    public void setProductsList(List<ProductRequestDTO> productsList) {
         this.productsList = productsList;
     }
 }

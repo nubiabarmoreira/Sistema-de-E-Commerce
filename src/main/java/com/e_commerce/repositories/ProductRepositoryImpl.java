@@ -2,6 +2,7 @@ package com.e_commerce.repositories;
 
 import com.e_commerce.dtos.ClientDTO;
 import com.e_commerce.dtos.ProductDTO;
+import com.e_commerce.dtos.ProductRequestDTO;
 import com.e_commerce.models.ProductModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -29,10 +30,10 @@ public class ProductRepositoryImpl implements ProductRepository {
     }
 
     @Override
-    public ProductDTO findProductByName(String name) {
+    public ProductDTO findProductByName(ProductRequestDTO productRequestDTO) {
         ProductModel productByName = databaseProductRepository
-                .findProductByName(name)
-                .orElseThrow(() -> new RuntimeException("Produto " + name + " não encontrado."));
+                .findProductByName(productRequestDTO.getName())
+                .orElseThrow(() -> new RuntimeException("Produto " + productRequestDTO.getName() + " não encontrado."));
 
         return new ProductDTO(productByName.getName(), productByName.getPrice(), productByName.getQuantity());
     }

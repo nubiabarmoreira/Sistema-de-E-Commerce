@@ -1,6 +1,7 @@
 package com.e_commerce.controllers;
 
 import com.e_commerce.dtos.ProductDTO;
+import com.e_commerce.dtos.ProductRequestDTO;
 import com.e_commerce.services.ProductService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +30,8 @@ public class ProductController {
     }
 
     @GetMapping("/nome/{nome}")
-    public ResponseEntity<ProductDTO> findProductByName (@PathVariable @RequestBody String name){
-        ProductDTO productByName = productService.findProductByName(name);
+    public ResponseEntity<ProductDTO> findProductByName (@RequestBody ProductRequestDTO productRequestDTO){
+        ProductDTO productByName = productService.findProductByName(productRequestDTO);
         return ResponseEntity.ok(productByName);
     }
 }

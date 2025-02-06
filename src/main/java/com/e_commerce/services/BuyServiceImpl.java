@@ -3,6 +3,7 @@ package com.e_commerce.services;
 import com.e_commerce.dtos.BuyDTO;
 import com.e_commerce.dtos.ClientDTO;
 import com.e_commerce.dtos.ProductDTO;
+import com.e_commerce.dtos.ProductRequestDTO;
 import com.e_commerce.repositories.ClientRepository;
 import com.e_commerce.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,10 +26,10 @@ public class BuyServiceImpl implements BuyService {
             throw new RuntimeException("Cliente com CPF " + clientToBuy.getCPF() + " não encontrado.");
         }
 
-        for (ProductDTO productDTO : buyRequest.getProductsList()) {
-            ProductDTO product = productRepository.findProductByName(productDTO.getName());
+        for (ProductRequestDTO productRequestDTO : buyRequest.getProductsList()) {
+            ProductDTO product = productRepository.findProductByName(productRequestDTO);
             if (product == null) {
-                throw new RuntimeException("Produto não encontrado: " + productDTO.getName());
+                throw new RuntimeException("Produto não encontrado: " + productRequestDTO.getName());
             }
 
             if (product.getQuantity() <= 0){

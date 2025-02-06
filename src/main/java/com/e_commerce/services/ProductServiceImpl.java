@@ -1,6 +1,7 @@
 package com.e_commerce.services;
 
 import com.e_commerce.dtos.ProductDTO;
+import com.e_commerce.dtos.ProductRequestDTO;
 import com.e_commerce.models.ProductModel;
 import com.e_commerce.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ProductDTO findProductByName(String name) {
-        return productRepository.findProductByName(name);
+    public ProductDTO findProductByName(ProductRequestDTO productRequestDTO) {
+        return productRepository.findProductByName(productRequestDTO);
     }
 }
