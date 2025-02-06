@@ -116,4 +116,5 @@ As principais tecnologias e ferramentas utilizadas no desenvolvimento deste proj
 
 - Melhorar as validações;
 - Criar mais endpoints;
-- Travar o sistema para que, caso um cliente tente comprar um produto sem estoque, retorne uma mensagem de erro, exiba quais produtos não estão disponíveis e impeça a compra de qualquer produto.
+- Travar o sistema para que, caso um cliente tente comprar um produto sem estoque, retorne uma mensagem de erro, exiba quais produtos não estão disponíveis e impeça a compra de qualquer produto;
+- Criar classes de Expections.
