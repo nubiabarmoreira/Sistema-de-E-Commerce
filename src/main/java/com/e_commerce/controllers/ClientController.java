@@ -21,7 +21,7 @@ public class ClientController {
     }
 
     @GetMapping("/CPF/{CPF}")
-    public ResponseEntity<ClientDTO> findClientByCPF (String CPF){
+    public ResponseEntity<ClientDTO> findClientByCPF (@PathVariable String CPF){
         ClientDTO clientByCPF = clientService.findClientByCPF(CPF);
         return ResponseEntity.ok(clientByCPF);
     }
