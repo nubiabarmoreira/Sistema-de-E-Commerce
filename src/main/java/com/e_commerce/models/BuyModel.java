@@ -1,13 +1,12 @@
 package com.e_commerce.models;
 
-import com.e_commerce.dtos.ClientDTO;
 import com.e_commerce.dtos.ProductDTO;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -17,7 +16,7 @@ public class BuyModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String CPF;
-    private List<ProductModel> productsList;
+    private List<ProductDTO> productsList = new ArrayList<>();
     private int quantityToBuy;
 
     public BuyModel() {}
@@ -25,7 +24,7 @@ public class BuyModel {
     public BuyModel(long id, int stock, String CPF, List<ProductDTO> productsList, int quantityToBuy) {
         this.id = id;
         this.CPF = CPF;
-        this.productsList = productsList;
+        this.productsList = productsList != null ? productsList : new ArrayList<>();  //refatorado com StackSpot
         this.quantityToBuy = quantityToBuy;
     }
 
@@ -50,6 +49,6 @@ public class BuyModel {
     }
 
     public void setProductsList(List<ProductDTO> productsList) {
-        this.productsList = productsList;
+        this.productsList = productsList != null ? productsList : new ArrayList<>();  //refatorado com StackSpot
     }
 }
