@@ -25,7 +25,7 @@ public class BuyDTO {
 
     public BuyDTO() {}
 
-    public BuyDTO(long id, int stock, String CPF, List<ProductDTO> productsList, int quantityToBuy) {
+    public BuyDTO(long id, String CPF, List<ProductDTO> productsList, int quantityToBuy) {
         this.id = id;
         this.CPF = CPF;
         this.productsList = productsList;
