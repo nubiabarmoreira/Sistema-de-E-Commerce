@@ -29,7 +29,7 @@ public class ProductController {
     }
 
     @GetMapping("/nome/{nome}")
-    public ResponseEntity<ProductDTO> findProductByName (@PathVariable String name, @RequestBody ProductDTO productRequest){
+    public ResponseEntity<ProductDTO> findProductByName (@PathVariable @RequestBody String name){
         ProductDTO productByName = productService.findProductByName(name);
         return ResponseEntity.ok(productByName);
     }
