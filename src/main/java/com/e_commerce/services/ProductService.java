@@ -8,5 +8,5 @@ import java.util.List;
 public interface ProductService {
     ProductDTO createProduct(String name, Double price, int quantity);
     List<ProductDTO> findAllProducts();
-    ProductDTO findProductByName(ProductRequestDTO productRequestDTO);
+    ProductDTO findProductByName(String name, ProductRequestDTO productRequestDTO);
 }

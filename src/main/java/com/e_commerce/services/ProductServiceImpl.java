@@ -33,7 +33,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ProductDTO findProductByName(ProductRequestDTO productRequestDTO) {
+    public ProductDTO findProductByName(String name, ProductRequestDTO productRequestDTO) {
         return productRepository.findProductByName(productRequestDTO);
     }
 }

@@ -30,8 +30,8 @@ public class ProductController {
     }
 
     @GetMapping("/nome/{nome}")
-    public ResponseEntity<ProductDTO> findProductByName (@RequestBody ProductRequestDTO productRequestDTO){
-        ProductDTO productByName = productService.findProductByName(productRequestDTO);
-        return ResponseEntity.ok(productByName);
+    public ResponseEntity<ProductDTO> findProductByName (@PathVariable String name, @RequestBody ProductRequestDTO productRequestDTO){
+        ProductDTO productByName = productService.findProductByName(name, productRequestDTO);
+        return ResponseEntity.ok().body(productByName);
     }
 }
